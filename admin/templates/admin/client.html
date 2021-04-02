@@ -1,0 +1,42 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h3 class="mt-3">Client Page</h3>
+            <form class="mt-3" action="/admin/client" method="POST" , enctype="multipart/form-data">
+                <div class="form-group my-2">
+                    {{form.c_img(class='form-control', placeholder='Enter The Image')}}
+                </div>
+                <div class="fomr-group mt-2">
+                    {{form.c_submit(class='btn btn-success', value='Add Post')}}
+                </div>
+            </form>
+
+            <table class="table mt-5">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Img</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ct in client %}
+                    <tr>
+                        <td scope="row">{{ct.id}}</td>
+                        <td>{{ct.c_img}}</td>
+                        <td>
+                            <a href="/admin/client/watch/{{ct.id}}"><i class="ml-1 bi bi-envelope-open"></i></a>
+                            <a href="#"><i class="ml-1 bi bi-pencil"></i></a>
+                            <a href="/admin/client/delete/{{ct.id}}"><i class="ml-1 bi bi-trash"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}

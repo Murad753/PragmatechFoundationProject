@@ -1,0 +1,55 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h3 class="mt-3">Latest Page</h3>
+            <form class="mt-3" action="/admin/latest" method="POST" , enctype="multipart/form-data">
+                <div class="form-group my-2">
+                    {{form.l_title(class='form-control', placeholder='Enter The Title')}}
+                </div>
+                <div class="form-group my-2">
+                    {{form.l_url(class='form-control', placeholder='Enter The Url')}}
+                </div>
+                <div class="form-group my-2">
+                    {{form.l_content(class='form-control', placeholder='Enter The Content')}}
+                </div>
+                <div class="form-group my-2">
+                    {{form.l_img(class='form-control')}}
+                </div>
+                <div class="form-group my-2">
+                    {{form.l_submit(class='btn btn-success', value='Add Post')}}
+                </div>
+            </form>
+
+            <table class="table mt-5">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Url</th>
+                        <th>Image</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for lt in latest %}
+                    <tr>
+                        <td scope="row">{{lt.id}}</td>
+                        <td>{{lt.l_title}}</td>
+                        <td>{{lt.l_url}}</td>
+                        <td>{{lt.l_img}}</td>
+                        <td>
+                            <a href="/admin/latest/watch/{{lt.id}}"><i class="ml-1 bi bi-envelope-open"></i></a>
+                            <a href="#"><i class="ml-1 bi bi-pencil"></i></a>
+                            <a href="/admin/latest/delete/{{lt.id}}"><i class="ml-1 bi bi-trash"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,17 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="list-group mt-3">
+                <a href="#" class="list-group-item list-group-item-action active">Latest Id: {{watchLatest.id}}</a>
+                <a href="#" class="list-group-item list-group-item-action">Latest Title: {{watchLatest.l_title}}</a>
+                <a href="#" class="list-group-item list-group-item-action">Latest Url: {{watchLatest.l_url}}</a>
+                <a href="#" class="list-group-item list-group-item-action">Latest Image: {{watchLatest.l_img}}</a>
+                <a href="#" class="list-group-item list-group-item-action">Latest Content: {{watchLatest.l_content}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

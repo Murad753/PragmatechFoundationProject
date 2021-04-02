@@ -1,0 +1,17 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="list-group mt-3">
+                <a href="#" class="list-group-item list-group-item-action active">Services Id: {{watchworks.id}}</a>
+                <a href="#" class="list-group-item list-group-item-action">Services Title: {{watchworks.w_title}}</a>
+                <a href="#" class="list-group-item list-group-item-action">Services Content: {{watchworks.w_content}}</a>
+                <a href="#" class="list-group-item list-group-item-action">Services Url: {{watchworks.w_url}}</a>
+                <a href="#" class="list-group-item list-group-item-action">Services Image: {{watchworks.w_img}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
